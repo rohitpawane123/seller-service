@@ -13,8 +13,13 @@ namespace SellersFunctionApp.Repositories
     {
         Task<ActionResult<IEnumerable<SellerProduct>>> GetAllProduuctsAsync();
 
-        Task<ActionResult<IEnumerable<SellerProduct>>> AddProduct(SellerProduct product);
+        Task<ActionResult> AddProduct(SellerProduct product);
 
         Task<ActionResult<SellerProduct>> GetSingleProductDetailsAsync(ObjectId id);
+
+        Task<ActionResult> DeleteProductAsync(ObjectId id);
+
+        Task<ActionResult> UpdateProductAsync(ObjectId id, string email, string productName, string shortDescription, string detailedDescription, double startingPrice, DateTime bidEndDate);
+
     }
 }

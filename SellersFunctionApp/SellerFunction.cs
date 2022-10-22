@@ -68,6 +68,33 @@ namespace SellersFunctionApp
             return new OkObjectResult(await _seller.GetSingleProductDetailsAsync(ObjectId.Parse(id)));
         }
 
+        [FunctionName("delete-product")]
+        public async Task<ActionResult> DeleteProduct([HttpTrigger(AuthorizationLevel.Function, "delete", Route = "delete-product/{id}")] HttpRequest request, ILogger logger, string id)
+        {
+            try
+            {
+                return new OkObjectResult(await _seller.DeleteProductAsync(ObjectId.Parse(id)));
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(ex.Message);
+                throw;
+            }
+        }
 
+        [FunctionName("update-product")]
+        public async Task<ActionResult> UpdateProduct([HttpTrigger(AuthorizationLevel.Function, "put", Route = "update-product/{id}/{email}/{productName}/{shortDescription}/{detailedDescription}/{startingPrice}/{bidEndDate}")] HttpRequest request, ILogger logger, string id, string email, string productName, string shortDescription, string detailedDescription, double startingPrice, DateTime bidEndDate)
+        {
+            try
+            {
+
+                return new OkObjectResult(await _seller.UpdateProductAsync(ObjectId.Parse(id), email, productName, shortDescription, detailedDescription, startingPrice, DateTime.Now.AddDays(10)));
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(ex.Message);
+                throw;
+            }
+        }
     }
 }

@@ -13,23 +13,23 @@ namespace SellersFunctionApp.Model
         [BsonId]
         public ObjectId ProductId { get; private set; }
 
-        [BsonElement("productname")]
+        [BsonElement("productName")]
         public string ProductName { get; set; }
-        [BsonElement("shortdescription")]
+        [BsonElement("shortDescription")]
         public string? ShortDescription { get; set; }
-        [BsonElement("detaileddescription")]
+        [BsonElement("detailedDescription")]
         public string? DetailedDescription { get; set; }
         [BsonElement("category")]
         public string? Category { get; set; }
-        [BsonElement("startingprice")]
+        [BsonElement("startingPrice")]
         public double StartingPrice { get; set; }
-        [BsonElement("bidenddate")]
+        [BsonElement("bidEndDate")]
         public DateTime BidEndDate { get; set; }
 
-        [BsonElement("firstname")]
+        [BsonElement("firstName")]
         public string FirstName { get; set; }
 
-        [BsonElement("lastname")]
+        [BsonElement("lastName")]
         public string? LastName { get; set; }
         [BsonElement("address")]
         public string? Address { get; set; }
@@ -42,7 +42,7 @@ namespace SellersFunctionApp.Model
         [BsonElement("phone")]
         public string? Phone { get; set; }
 
-        [BsonElement("emailaddress")]
+        [BsonElement("email")]
         public string? Email { get; set; }
 
         public SellerProduct()
